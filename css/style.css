@@ -10,12 +10,13 @@ body, html {
 
 #grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    width: 180px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
 }
 
 .tile {
-    height: 60px;
-    width: 60px;
     border: 1px solid black;
 }
