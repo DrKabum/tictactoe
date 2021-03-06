@@ -22,7 +22,7 @@ function generateGrid() {
     })
 }
 
-//listeners
+// listeners
 function initializeGridListeners() {
     const tiles = grid.childNodes
     tiles.forEach(item => item.addEventListener('click', () => console.log(`row ${item.dataset.row}, col ${item.dataset.col}`)))
