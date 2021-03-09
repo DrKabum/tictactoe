@@ -23,7 +23,7 @@ function generateGrid() {
     })
 }
 
-function handleClick(e) {
+function playRound(e) {
     const mark = p1turn ? "x" : "o"
     const {col, row} = e.target.dataset
 
@@ -37,7 +37,7 @@ function handleClick(e) {
 // listeners
 function initializeGridListeners() {
     const tiles = grid.childNodes
-    tiles.forEach(item => item.addEventListener('click', (e) => handleClick(e) ))
+    tiles.forEach(item => item.addEventListener('click', (e) => playRound(e) ))
 }
 
 generateGrid()
