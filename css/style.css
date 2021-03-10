@@ -1,12 +1,60 @@
 :root {
-
+    --dark-color: rgb(51, 41, 41);
+    --light-color: rgb(149, 185, 183);
+    --primary-accent: yellow;
+    --secondary-accent: red;
 }
 
 body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
+    font-size: 18px;
+}
+
+/* Typography */
+body {
+    font-family: 'RocknRoll One', sans-serif;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+p {
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* layout */
+body {
+    height: 100vh;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+button {
+    border: 0;
+    font-family: inherit;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    padding: .5em 2em;
+    border-radius: .3em;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
 }
 
 #grid {
@@ -15,11 +63,11 @@ body, html {
     grid-template-rows: repeat(3, 1fr);
     width: 200px;
     height: 200px;
-    border: 1px solid black;
+    border: 1px solid var(--dark-color);
 }
 
 .tile {
-    border: 1px solid black;
+    border: 1px solid var(--dark-color);
     text-align: center;
     font-size: 48px;
     text-transform: uppercase;
