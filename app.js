@@ -4,10 +4,12 @@ const restartBtn = document.getElementById('restart-button')
 const message = document.getElementById('message')
 
 // variables
-let line1 = ['', '', '']
-let line2 = ['', '', '']
-let line3 = ['', '', '']
-let table = [line1, line2, line3]
+
+let table = [
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+]
 let isRunning = true
 let p1turn = true
 
@@ -44,8 +46,8 @@ function playRound(e) {
 
 function isGameOver() {
     const rowsAsLines = table.map((_, i) => table.map(v => v[i]))
-    const diagonal1 = [line1[0], line2[1], line3[2]]
-    const diagonal2 = [line1[2], line2[1], line3[0]]
+    const diagonal1 = [table[0][0], table[1][1], table[2][2]]
+    const diagonal2 = [table[0][2], table[1][1], table[2][0]]
     // line check
     if (isLineWon(table)) return true
     // column check
@@ -66,10 +68,11 @@ function isSameOnLine(array) {
 }
 
 function restart() {
-    line1 = ['', '', '']
-    line2 = ['', '', '']
-    line3 = ['', '', '']
-    table = [line1, line2, line3]
+    table = [
+        ['', '', ''],
+        ['', '', ''],
+        ['', '', '']
+    ]
     grid.childNodes.forEach(tile => tile.textContent = '')
     isRunning = true
     p1turn = true
