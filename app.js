@@ -1,6 +1,7 @@
 // DOM elements
 const grid = document.getElementById('grid')
 const restartBtn = document.getElementById('restart-button')
+const message = document.getElementById('message')
 
 // variables
 let line1 = ['', '', '']
@@ -27,11 +28,15 @@ function playRound(e) {
     const mark = p1turn ? "x" : "o"
     const {col, row} = e.target.dataset
 
-    if(table[row][col] === "") {
+    if(table[row][col] === "" && !isGameOver()) {
         table[row][col] = mark
         e.target.textContent = mark
-        if(isGameOver()) console.log('game over!')
-        p1turn = !p1turn        
+        if(isGameOver()) {
+            message.textContent = `${p1turn ? "Player 1" : "Player 2"} has won!`
+        } else {
+            p1turn = !p1turn
+            message.textContent = `${p1turn ? "Player 1" : "Player 2"} turn`
+        }        
     }
 }
 
