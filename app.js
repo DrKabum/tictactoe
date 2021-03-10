@@ -27,11 +27,35 @@ function playRound(e) {
     const mark = p1turn ? "x" : "o"
     const {col, row} = e.target.dataset
 
-    if(table[col][row] === "") {
-        table[col][row] = mark
+    if(table[row][col] === "") {
+        table[row][col] = mark
         e.target.textContent = mark
-        p1turn = !p1turn
+        if(isGameOver()) console.log('game over!')
+        p1turn = !p1turn        
     }
+}
+
+function isGameOver() {
+    const rowsAsLines = table.map((_, i) => table.map(v => v[i]))
+    const diagonal1 = [line1[0], line2[1], line3[2]]
+    const diagonal2 = [line1[2], line2[1], line3[0]]
+    // line check
+    if(isLineWon(table)) return true
+    // column check
+    else if(isLineWon(rowsAsLines)) return true
+    // diagonals
+    else if(isSameOnLine(diagonal1) || isSameOnLine(diagonal2)) return true
+    else return false
+}
+
+function isLineWon(array) {
+    for(const line of array) {
+        if(isSameOnLine(line)) return true
+    }
+}
+
+function isSameOnLine(array) {
+    return array.every(v => v === "x") || array.every(v => v === "o")
 }
 
 // listeners
